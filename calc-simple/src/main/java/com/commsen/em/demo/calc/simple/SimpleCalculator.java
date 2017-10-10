@@ -3,10 +3,8 @@ package com.commsen.em.demo.calc.simple;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import com.commsen.em.annotations.Provides;
 import com.commsen.em.demo.calc.api.Calculator;
 
-@Provides("fantastic.calculator")
 public class SimpleCalculator implements Calculator {
 
 	Pattern EXPR = Pattern.compile("\\s*(?<left>\\d+\\.?\\d*)\\s*(?<op>\\+|-)\\s*(?<right>\\d+\\.?\\d*)\\s*");
