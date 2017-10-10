@@ -11,6 +11,15 @@
 
 	<artifactId>editor</artifactId>
 
+	<properties>
+		<em:resolve />
+		 
+		<em:contractors>
+			com.commsen.demos.fantastic.contracts:calc-simple:1.0.0
+		</em:contractors>
+	</properties>
+
+
 
 	<dependencies>
 		<dependency>
@@ -26,6 +35,14 @@
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-shade-plugin</artifactId>
 				<version>3.0.0</version>
+				<!-- Need EM as plugin dependency in order to use custom transformer -->
+				<dependencies>
+					<dependency>
+						<groupId>com.commsen.em</groupId>
+						<artifactId>em-maven-extension</artifactId>
+						<version>${em.version}</version>
+					</dependency>
+				</dependencies>
 				<executions>
 					<execution>
 						<phase>package</phase>
@@ -37,11 +54,22 @@
 							<promoteTransitiveDependencies>false</promoteTransitiveDependencies>
 							<minimizeJar>true</minimizeJar>
 							<transformers>
+								<!-- Custom transformer for `maven-shade-plugin` to append additional 
+									artifacts -->
+								<transformer
+									implementation="com.commsen.em.maven.plugins.shade.AppendArtifactsTrnasformer">
+									<location>${em:resolve.output}</location>
+								</transformer>
 								<transformer
 									implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
 									<mainClass>com.commsen.em.demo.editor.Editor</mainClass>
 								</transformer>
 							</transformers>
+							<artifactSet>
+								<excludes>
+									<exclude>com.commsen.em:*</exclude>
+								</excludes>
+							</artifactSet>
 						</configuration>
 					</execution>
 				</executions>
