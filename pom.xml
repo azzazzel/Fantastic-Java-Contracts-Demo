@@ -13,7 +13,27 @@
 		<maven.compiler.source>1.8</maven.compiler.source>
 		<maven.compiler.target>1.8</maven.compiler.target>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<em.version>0.2.0</em.version>
 	</properties>
+
+	<dependencies>
+		<dependency>
+			<groupId>com.commsen.em</groupId>
+			<artifactId>em.annotations</artifactId>
+			<version>${em.version}</version>
+			<scope>provided</scope>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<extensions>
+			<extension>
+				<groupId>com.commsen.em</groupId>
+				<artifactId>em-maven-extension</artifactId>
+				<version>${em.version}</version>
+			</extension>
+		</extensions>
+	</build>
 
 	<modules>
 		<module>calc-api</module>
