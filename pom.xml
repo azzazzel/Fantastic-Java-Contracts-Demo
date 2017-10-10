@@ -41,5 +41,6 @@
 		<module>calc-fancy</module>
 		<module>markup</module>
 		<module>editor</module>
+		<module>rest</module>
 	</modules>
 </project>
