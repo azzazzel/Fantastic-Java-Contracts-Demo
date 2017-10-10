@@ -11,4 +11,9 @@
 
 	<artifactId>calc-api</artifactId>
 
+	<properties>
+		<em:module />
+	</properties>
+
+
 </project>

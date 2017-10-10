@@ -4,8 +4,10 @@ import java.util.ServiceLoader;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import com.commsen.em.annotations.Requires;
 import com.commsen.em.demo.calc.api.Calculator;
 
+@Requires ("fantastic.calculator")
 public class Markup {
 
 	ServiceLoader<Calculator> serviceLoader = ServiceLoader.load(Calculator.class);

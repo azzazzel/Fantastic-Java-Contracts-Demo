@@ -11,6 +11,10 @@
 
 	<artifactId>calc-simple</artifactId>
 
+	<properties>
+		<em:module />
+	</properties>
+
 	<dependencies>
 		<dependency>
 			<groupId>com.commsen.demos.fantastic.contracts</groupId>
